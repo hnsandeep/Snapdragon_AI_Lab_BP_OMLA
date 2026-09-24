@@ -1,0 +1,58 @@
+# ============================================================
+# Offline Multilingual Lecture Assistant
+# Python 3.11.x  AMD x64  (NOT 3.14, NOT ARM64)
+# ============================================================
+
+# ── Qualcomm AI Hub ───────────────────────────────────────────────────────────
+qai-hub==0.55.0
+qai-hub-models==0.62.0
+
+# ── GenieX — local LLM on Snapdragon NPU ─────────────────────────────────────
+# Install EXACTLY ONE of the three variants (they share the top-level `geniex`
+# namespace and overwrite each other):
+#
+#   On Snapdragon X Elite (Hexagon NPU via llama.cpp Q4_0 GGUF):
+geniex-llama-cpp
+#
+#   AI Hub pre-compiled bundles (Hexagon NPU via QAIRT):
+#   geniex-qairt
+#
+#   Meta-package (lets pip choose the best variant for your chipset):
+#   geniex
+
+# ── Deep learning / model export ──────────────────────────────────────────────
+torch==2.3.1
+torchvision==0.18.1
+torchaudio==2.3.1
+onnx==1.16.1
+
+# ── ONNX Runtime — choose ONE (they conflict) ─────────────────────────────────
+#
+#   Off-device dev / CI (x64):
+onnxruntime==1.18.1
+#
+#   On-device Snapdragon X Elite (bundles QnnHtp.dll, no separate QAIRT needed):
+#   onnxruntime-qnn==2.6.0
+
+# ── Audio ─────────────────────────────────────────────────────────────────────
+sounddevice==0.4.7
+soundfile==0.12.1
+numpy==1.26.4
+scipy==1.13.1
+
+# ── Transcription ─────────────────────────────────────────────────────────────
+openai-whisper==20231117
+tiktoken==0.7.0
+
+# ── Translation ───────────────────────────────────────────────────────────────
+transformers==4.41.2
+sentencepiece==0.2.0
+sacremoses==0.1.1
+optimum[onnxruntime]==1.19.2
+huggingface-hub==0.23.4
+IndicTransToolkit==0.1.1
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+requests==2.32.3
+tqdm==4.66.4

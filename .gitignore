@@ -1,0 +1,55 @@
+# ── Secrets — NEVER commit ───────────────────────────────────────────────────
+.env
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# ── Model weights (large binaries — store separately, not in git) ─────────────
+# All ONNX, TFLite, QNN, and GGUF weight files anywhere in the tree
+models/**/*.onnx
+models/**/*.tflite
+models/**/*.bin
+models/**/*.gguf
+models/**/*.npz
+models/**/*.pt
+models/**/*.pt2
+# But keep the models/ directory structure and README
+!models/.gitkeep
+!models/README.md
+!models/**/.gitkeep
+
+# ── Audio scratch files ───────────────────────────────────────────────────────
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.ogg
+
+# ── Benchmark raw output (keep results.md, ignore large yaml dumps) ───────────
+bench/*.yaml
+bench/*.json
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.suo
+*.user
